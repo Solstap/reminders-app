@@ -1,10 +1,10 @@
-import React from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
+import DeletePerson from "./DeletePerson";
 
 const AddEventForm = ({
   setFormIsVisible,
@@ -29,8 +29,19 @@ const AddEventForm = ({
     setFormIsVisible(!formIsVisible);
   };
 
+  const handleDelete = (personToDelete) => {
+    // Filter out the person to be deleted
+    const updatedBirthdays = birthdays.filter(
+      (person) => person !== personToDelete
+    );
+
+    // Update the state with the filtered list
+    setBirthdays(updatedBirthdays);
+  };
+
+
   return (
-    <Box sx={{ position:'fixed', right:50, bottom:50, zIndex:1000}}>
+    <Box sx={{ position: 'fixed', right: 50, bottom: 50, zIndex: 1000 }}>
       <Box
         display="flex"
         flexDirection="column"
@@ -39,15 +50,15 @@ const AddEventForm = ({
         padding={2}
         margin={2}
         boxShadow={3}
-        sx={{backgroundColor:'white'}}
-        
+        sx={{ backgroundColor: 'white' }}
+
       >
         <Box width="100%" display="flex" justifyContent="flex-end">
           <IconButton onClick={() => setFormIsVisible(!formIsVisible)}>
             <CloseIcon />
           </IconButton>
         </Box>
-        <Typography sx={{mb:2}} component={"h3"}>Add event</Typography>
+        <Typography sx={{ mb: 2 }} component={"h3"}>Add event</Typography>
         <form onSubmit={handleSubmit}>
           <Box marginBottom={2}>
             <TextField
@@ -73,6 +84,9 @@ const AddEventForm = ({
             Add Birthday
           </Button>
         </form>
+        {birthdays.map((person, index) => (
+          <DeletePerson key={index} person={person} onDelete={handleDelete} />
+        ))}
       </Box>
     </Box>
   );

@@ -1,13 +1,19 @@
-
-function calculateAge({targetDate}) {
+function calculateAge({ targetDate }) {
     const birthDate = new Date(targetDate);
     const currentDate = new Date();
 
-    //calculate age (years) current year to birth year
-    const age = currentDate.getFullYear() - birthDate.getFullYear();
-  
-    return age;
-  }
+    let age = currentDate.getFullYear() - birthDate.getFullYear();
 
-  export default calculateAge;
-  
+    const hasBirthdayOccurredThisYear =
+        currentDate.getMonth() > birthDate.getMonth() ||
+        (currentDate.getMonth() === birthDate.getMonth() &&
+            currentDate.getDate() >= birthDate.getDate());
+
+    if (!hasBirthdayOccurredThisYear) {
+        age--;
+    }
+
+    return age;
+}
+
+export default calculateAge;
