@@ -1,4 +1,3 @@
-import React from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
@@ -32,8 +31,9 @@ const AddEventForm = ({
     setFormIsVisible(!formIsVisible);
   };
 
+
   return (
-    <Box sx={{ position:'fixed', right:50, bottom:50, zIndex:1000}}>
+    <Box sx={{ position: 'fixed', right: 50, bottom: 50, zIndex: 1000 }}>
       <Box
         display="flex"
         flexDirection="column"
@@ -42,15 +42,15 @@ const AddEventForm = ({
         padding={2}
         margin={2}
         boxShadow={3}
-        sx={{backgroundColor:'white'}}
-        
+        sx={{ backgroundColor: 'white' }}
+
       >
         <Box width="100%" display="flex" justifyContent="flex-end">
           <IconButton onClick={() => setFormIsVisible(!formIsVisible)}>
             <CloseIcon />
           </IconButton>
         </Box>
-        <Typography sx={{mb:2}} component={"h3"}>Add event</Typography>
+        <Typography sx={{ mb: 2 }} component={"h3"}>Add event</Typography>
         <form onSubmit={handleSubmit}>
           <Box marginBottom={2}>
             <TextField
