@@ -9,12 +9,14 @@ import Age from '../Components/Age';
 import Grid from '@mui/material/Grid';
 import BackgroundLetterAvatars from "./Avatar";
 import Box from "@mui/material/Box";
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-const EventCard = ({ birthday }) => {
+const EventCard = ({ birthday, index, handleDeleteBirthday }) => {
     console.log(birthday)
     return (
       <ListItem sx={{display:'flex'}}>
-        <Card sx={{width:'50%', margin:'auto', borderRadius:4}} m={4}>
+        <Card sx={{width:'50%', margin:'auto', borderRadius:4, backgroundColor:'lightorange'}} m={4} >
           <CardContent>
             <Grid container spacing={2}>
               <Grid item xs={12}>
@@ -41,6 +43,9 @@ const EventCard = ({ birthday }) => {
                   Age:
                   <Age targetDate={birthday.birthday} />
                 </Typography>
+                <IconButton onClick={() => handleDeleteBirthday(index)} color="secondary" aria-label="delete">
+                    <DeleteIcon />
+                  </IconButton>
               </Grid>
             </Grid>
           </CardContent>
