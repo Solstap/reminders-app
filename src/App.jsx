@@ -10,6 +10,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+import Countdown from './Components/Countdown';
+
 function createData(name, birthday){
   return { name, birthday };
 }
@@ -27,6 +29,8 @@ export default function BasicTable() {
           <TableRow>
             <TableCell>Name</TableCell>
             <TableCell align="right">Birthdays</TableCell>
+            <TableCell align="right">Countdown</TableCell> 
+            <TableCell align="right">Add Age</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -39,7 +43,9 @@ export default function BasicTable() {
                 {row.name}
               </TableCell>
               <TableCell align="right">{row.birthday}</TableCell>
-              <TableCell align="right">Add Countdown</TableCell>
+              <TableCell align="right">
+                <Countdown targetDate={row.birthday} />
+              </TableCell>
               <TableCell align="right">Add Age</TableCell>
             </TableRow>
           ))}
