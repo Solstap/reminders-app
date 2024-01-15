@@ -7,10 +7,13 @@ import Countdown from "./Countdown";
 import Typography from "@mui/material/Typography";
 import Age from '../Components/Age';
 import Grid from '@mui/material/Grid';
+import BackgroundLetterAvatars from "./Avatar";
 
 const EventCard = ({ birthday }) => {
+    console.log(birthday)
     return (
-      <ListItem>
+      <ListItem sx={{display:'flex'}}>
+        <BackgroundLetterAvatars birthday={birthday} />
         <Card sx={{width:'50%', margin:'auto', borderRadius:4}} m={4}>
           <CardContent>
             <Grid container spacing={2}>
