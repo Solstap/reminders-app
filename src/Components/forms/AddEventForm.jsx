@@ -72,7 +72,7 @@ const AddEventForm = ({
               fullWidth
             />
           </Box>
-          <Button type="submit" variant="contained" color="primary">
+          <Button type="submit" variant="contained" color="secondary">
             Add Birthday
           </Button>
         </form>
