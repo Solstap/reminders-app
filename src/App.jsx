@@ -44,47 +44,16 @@ export default function App() {
   return (
     <>
     <List>
-      {birthdays.map((birthday) =>
-        <EventCard key={nanoid()} birthday={birthday} />
+      {birthdays.map((birthday, index) =>
+        <EventCard key={nanoid()} birthday={birthday} index={index} handleDeleteBirthday={handleDeleteBirthday}/>
       )}
     </List>
-    {/* <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="right">Birthdays</TableCell>
-            <TableCell align="right">Countdown</TableCell> 
-            <TableCell align="right">Age</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {birthdays.map((row) => (
-            <TableRow
-              key={nanoid()}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.birthday}</TableCell>
-              <TableCell align="right">
-                <Countdown targetDate={row.birthday} />
-              </TableCell>
-              <TableCell align="right">
-                <Age targetDate={row.birthday} />
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer> */}
-    {!formIsVisible && <Fab aria-label='add event' color='primary' onClick={() => setFormIsVisible(!formIsVisible)} sx={{ position:'fixed', right:50, bottom:50, zIndex:1000}} variant='extended'>
+    {!formIsVisible && <Fab aria-label='add event' color='secondary' onClick={() => setFormIsVisible(!formIsVisible)} sx={{ position:'fixed', right:50, bottom:50, zIndex:1000}} variant='extended'>
     <AddIcon sx={{ mr: 1 }}/>
     Add Event
     </Fab>}
     {formIsVisible && <AddEventForm setFormIsVisible={setFormIsVisible} formIsVisible={formIsVisible} birthdays={birthdays} setBirthdays={setBirthdays} />}
-      <TableContainer component={Paper}>
+      {/* <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -112,9 +81,7 @@ export default function App() {
                 </TableCell>
 
                 <TableCell align="right">
-                  <IconButton onClick={() => handleDeleteBirthday(index)} color="secondary" aria-label="delete">
-                    <DeleteIcon />
-                  </IconButton>
+                  
                 </TableCell>
 
               </TableRow>
@@ -126,7 +93,7 @@ export default function App() {
         <AddIcon sx={{ mr: 1 }} />
         Add Event
       </Fab>}
-      {formIsVisible && <AddEventForm setFormIsVisible={setFormIsVisible} formIsVisible={formIsVisible} birthdays={birthdays} setBirthdays={setBirthdays} />}
+      {formIsVisible && <AddEventForm setFormIsVisible={setFormIsVisible} formIsVisible={formIsVisible} birthdays={birthdays} setBirthdays={setBirthdays} />} */}
     </>
 
   );
