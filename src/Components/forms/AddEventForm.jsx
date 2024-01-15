@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import DeletePerson from "./DeletePerson";
 
 const AddEventForm = ({
   setFormIsVisible,
@@ -27,16 +26,6 @@ const AddEventForm = ({
 
     //close form
     setFormIsVisible(!formIsVisible);
-  };
-
-  const handleDelete = (personToDelete) => {
-    // Filter out the person to be deleted
-    const updatedBirthdays = birthdays.filter(
-      (person) => person !== personToDelete
-    );
-
-    // Update the state with the filtered list
-    setBirthdays(updatedBirthdays);
   };
 
 
@@ -84,9 +73,6 @@ const AddEventForm = ({
             Add Birthday
           </Button>
         </form>
-        {birthdays.map((person, index) => (
-          <DeletePerson key={index} person={person} onDelete={handleDelete} />
-        ))}
       </Box>
     </Box>
   );
