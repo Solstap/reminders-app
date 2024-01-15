@@ -11,20 +11,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import Fab from '@mui/material/Fab';
 import AddEventForm from './Components/forms/AddPerson';
 import AddIcon from '@mui/icons-material/Add';
 
 import Countdown from './Components/Countdown';
+import Age from './Components/Age';
 
-function createData(name, birthday){
-  return { name, birthday };
-}
-
-const rows = [
-  createData('Roxana Mihaila', '1993-06-28'),
-];
 
 //list of birthdays
 let birthdayList = [
@@ -34,7 +28,6 @@ let birthdayList = [
   { name: "Diana", birthday: "1985-03-30" },
   { name: "Ethan", birthday: "1991-11-08" },
 ]
-
 
 
 export default function App() {
@@ -51,7 +44,7 @@ export default function App() {
             <TableCell>Name</TableCell>
             <TableCell align="right">Birthdays</TableCell>
             <TableCell align="right">Countdown</TableCell> 
-            <TableCell align="right">Add Age</TableCell>
+            <TableCell align="right">Age</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -67,7 +60,9 @@ export default function App() {
               <TableCell align="right">
                 <Countdown targetDate={row.birthday} />
               </TableCell>
-              <TableCell align="right">Add Age</TableCell>
+              <TableCell align="right">
+                <Age targetDate={row.birthday} />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
