@@ -2,7 +2,6 @@
 import Card from "@mui/material/Card";
 import ListItem from "@mui/material/ListItem";
 import CardContent from "@mui/material/CardContent";
-import Avatar from "@mui/material/Avatar";
 import Countdown from "./Countdown";
 import Typography from "@mui/material/Typography";
 import Age from '../Components/Age';
