@@ -4,7 +4,8 @@
   padding: 2rem;
   text-align: center;
 
-  background-image: url("../public/cake.jpg");
+  background-image: url("../public/image.png");
+
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

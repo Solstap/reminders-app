@@ -15,7 +15,7 @@ const EventCard = ({ birthday, index, handleDeleteBirthday }) => {
     console.log(birthday)
     return (
       <ListItem sx={{display:'flex'}}>
-        <Card sx={{width:'50%', margin:'auto', borderRadius:4, backgroundColor:'lightorange'}} m={4} >
+        <Card sx={{width:'50%', margin:'auto', borderRadius:4, backgroundColor:''}} m={4} >
           <CardContent>
             <Grid container spacing={2}>
               <Grid item xs={12}>

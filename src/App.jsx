@@ -37,7 +37,7 @@ export default function App() {
         <EventCard key={nanoid()} birthday={birthday} index={index} handleDeleteBirthday={handleDeleteBirthday}/>
       )}
     </List>
-    {!formIsVisible && <Fab aria-label='add event' color='secondary' onClick={() => setFormIsVisible(!formIsVisible)} sx={{ position:'fixed', right:50, bottom:50, zIndex:1000}} variant='extended'>
+    {!formIsVisible && <Fab aria-label='add event' color='secondary' onClick={() => setFormIsVisible(!formIsVisible)} sx={{ position:'fixed', right:180, bottom:50, zIndex:1000}} variant='extended'>
     <AddIcon sx={{ mr: 1 }}/>
     Add Event
     </Fab>}
