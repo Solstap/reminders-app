@@ -39,6 +39,8 @@ export default function BasicTable() {
                 {row.name}
               </TableCell>
               <TableCell align="right">{row.birthday}</TableCell>
+              <TableCell align="right">Add Countdown</TableCell>
+              <TableCell align="right">Add Age</TableCell>
             </TableRow>
           ))}
         </TableBody>
