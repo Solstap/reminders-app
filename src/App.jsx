@@ -1,5 +1,7 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import './App.css'
+import { nanoid } from 'nanoid'
+
 
 // import * as React from 'react';
 import Table from '@mui/material/Table';
@@ -9,6 +11,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import Fab from '@mui/material/Fab';
+import AddEventForm from './Components/forms/AddPerson';
+import AddIcon from '@mui/icons-material/Add';
 
 import Countdown from './Components/Countdown';
 
@@ -18,11 +24,26 @@ function createData(name, birthday){
 
 const rows = [
   createData('Roxana Mihaila', '1993-06-28'),
-
 ];
 
-export default function BasicTable() {
+//list of birthdays
+let birthdayList = [
+  { name: "Alice", birthday: "1990-01-12" },
+  { name: "Bob", birthday: "1988-05-23" },
+  { name: "Charlie", birthday: "1992-07-15" },
+  { name: "Diana", birthday: "1985-03-30" },
+  { name: "Ethan", birthday: "1991-11-08" },
+]
+
+
+
+export default function App() {
+  const [formIsVisible, setFormIsVisible] = useState(false)
+  const [birthdays, setBirthdays] = useState(birthdayList);
+
+
   return (
+    <>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
@@ -34,9 +55,9 @@ export default function BasicTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {birthdays.map((row) => (
             <TableRow
-              key={row.name}
+              key={nanoid()}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
@@ -52,6 +73,13 @@ export default function BasicTable() {
         </TableBody>
       </Table>
     </TableContainer>
+    {!formIsVisible && <Fab aria-label='add event' color='primary' onClick={() => setFormIsVisible(!formIsVisible)} sx={{ position:'fixed', right:50, bottom:50, zIndex:1000}} variant='extended'>
+    <AddIcon sx={{ mr: 1 }}/>
+    Add Event
+    </Fab>}
+    {formIsVisible && <AddEventForm setFormIsVisible={setFormIsVisible} formIsVisible={formIsVisible} birthdays={birthdays} setBirthdays={setBirthdays} />}
+    </>
+
   );
 }
 
