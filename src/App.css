@@ -3,6 +3,13 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+
+  background-image: url("../public/bricks.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
 .logo {

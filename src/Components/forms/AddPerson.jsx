@@ -23,7 +23,10 @@ const AddEventForm = ({
     const newBirthday = { name, birthday };
     console.log(newBirthday);
     console.log("adding new birthday");
-    setBirthdays([...birthdays, newBirthday]);
+  
+    setBirthdays([...birthdays, newBirthday]
+      .sort((a, b) => new Date(a.birthday) - new Date(b.birthday))
+    )
 
     //close form
     setFormIsVisible(!formIsVisible);
