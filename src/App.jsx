@@ -12,7 +12,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import Fab from '@mui/material/Fab';
 import AddEventForm from './Components/forms/AddPerson';
+import AddIcon from '@mui/icons-material/Add';
 
 function createData(name, birthday){
   return { name, birthday };
@@ -37,7 +39,6 @@ export default function App() {
   const [formIsVisible, setFormIsVisible] = useState(false)
   const [birthdays, setBirthdays] = useState(birthdayList);
 
-  console.log(birthdayList)
 
   return (
     <>
@@ -66,7 +67,10 @@ export default function App() {
         </TableBody>
       </Table>
     </TableContainer>
-    {!formIsVisible && <Button onClick={() => setFormIsVisible(!formIsVisible)}>Add Person</Button>}
+    {!formIsVisible && <Fab aria-label='add event' color='primary' onClick={() => setFormIsVisible(!formIsVisible)} sx={{ position:'fixed', right:50, bottom:50, zIndex:1000}} variant='extended'>
+    <AddIcon sx={{ mr: 1 }}/>
+    Add Event
+    </Fab>}
     {formIsVisible && <AddEventForm setFormIsVisible={setFormIsVisible} formIsVisible={formIsVisible} birthdays={birthdays} setBirthdays={setBirthdays} />}
     </>
 
