@@ -26,7 +26,7 @@ export default function BasicTable() {
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
-            <TableCell align="right">Birthday</TableCell>
+            <TableCell align="right">Birthdays</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
